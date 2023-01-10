@@ -6,7 +6,7 @@ public class SpringTest {
 
     /**
      * 传统BeanFactory方法
-     * 【麻烦后续使用ApplicationContext 对 BeanFactory进行了一定的封装读取更加简单】
+     * 【麻烦 后续使用ApplicationContext 对 BeanFactory进行了一定的封装读取更加简单】
      * @param args
      */
     public static void main(String[] args) {
