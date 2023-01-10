@@ -7,13 +7,16 @@ import org.springframework.beans.factory.InitializingBean;
 
 public class UserServiceImpl implements UserService, InitializingBean {
 
-    public UserServiceImpl() {
-        System.out.println("我被实例化了");
+//    public UserServiceImpl() {
+//        System.out.println("我被实例化了");
+//
+//    }
+    private String name;
 
-    }
 
-    public UserServiceImpl(UserDao userDao) {
-        this.userDao = userDao;
+    public UserServiceImpl(String name) {
+        this.name = name;
+        System.out.println("有参构造执行成功,name的值:"+this.name);
     }
 
     public UserDao userDao;

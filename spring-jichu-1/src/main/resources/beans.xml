@@ -20,11 +20,19 @@
        destroy-method:bean在销毁销毁时(必须手动使用application close方法)
        容器关闭,才能去调用销毁方法
       -->
-    <bean id="userService" class="org.example.servie.impl.UserServiceImpl" scope="singleton"
-    init-method="init" destroy-method="destruction"
+
+    <!-- 在当前类中无对应无参构造方法时,spring读取bean时会报找不到对应的构造方法错误
+    name:对应的形参名 value:对应形参的值
+    <constructor-arg name="name" value="xiaoyong"/>
+       -->
+    <bean id="userDao" class="org.example.dao.impl.UserDaoImpl"/>
+
+    <bean id="userService" class="org.example.servie.impl.UserServiceImpl"
     >
+        <!--写入有参构造传值name:对应的形参名字 value:对应的值-->
+        <constructor-arg name="name" value="xiaoyong"/>
         <property name="userDao" ref="userDao"/>
     </bean>
 
-    <bean id="userDao" class="org.example.dao.impl.UserDaoImpl"/>
+
 </beans>
