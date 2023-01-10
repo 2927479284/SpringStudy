@@ -4,7 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- 指定当前类所在的包的地址并且指定一个唯一id作为读取xml文件时的依据 -->
-    <bean id="userService" class="org.example.servie.impl.UserServiceImpl">
+    <!-- spring中scope是一个非常关键的概念，简单说就是对象在spring容器（IOC容器）中的生命周期，也可以理解为对象在spring容器中的创建方式
+       在基础框架中spring-context：只有singleton,prototype 两种
+       其中singleton为单例模式 无论从spring容器中获取多少次只会拿到一个bean对象
+       反之prototype非单例模式,每一次从容器中getBean时都会创建一个新的对象
+       -->
+    <bean id="userService" class="org.example.servie.impl.UserServiceImpl" scope="prototype">
         <property name="userDao" ref="userDao"/>
     </bean>
 

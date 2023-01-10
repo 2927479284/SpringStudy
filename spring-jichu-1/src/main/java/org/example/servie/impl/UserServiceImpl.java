@@ -6,6 +6,15 @@ import org.example.servie.UserService;
 
 public class UserServiceImpl implements UserService {
 
+    public UserServiceImpl() {
+        System.out.println("我被实例化了");
+        
+    }
+
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
     public UserDao userDao;
 
     public void setUserDao(UserDao userDao){
