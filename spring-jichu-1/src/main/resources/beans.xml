@@ -4,12 +4,25 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- 指定当前类所在的包的地址并且指定一个唯一id作为读取xml文件时的依据 -->
+
     <!-- spring中scope是一个非常关键的概念，简单说就是对象在spring容器（IOC容器）中的生命周期，也可以理解为对象在spring容器中的创建方式
        在基础框架中spring-context：只有singleton,prototype 两种
        其中singleton为单例模式 无论从spring容器中获取多少次只会拿到一个bean对象
        反之prototype非单例模式,每一次从容器中getBean时都会创建一个新的对象
        -->
-    <bean id="userService" class="org.example.servie.impl.UserServiceImpl" scope="prototype">
+
+    <!-- lazy-init:Bean的延迟加载
+       当lazy-init设置为true时为延迟加载，也就是当Spring容器创建的时候，不会立即创建Bean实例，
+       等待用到时在创建Bean实例并存储到单例池中去，后续在使用该Bean直接从单例池获取即可，本质上该Bean还是单例的
+       -->
+
+    <!--  init-method:bean在创建完成后(就是构造方法执行完成后) 执行调用初始化方法
+       destroy-method:bean在销毁销毁时(必须手动使用application close方法)
+       容器关闭,才能去调用销毁方法
+      -->
+    <bean id="userService" class="org.example.servie.impl.UserServiceImpl" scope="singleton"
+    init-method="init" destroy-method="destruction"
+    >
         <property name="userDao" ref="userDao"/>
     </bean>
 
