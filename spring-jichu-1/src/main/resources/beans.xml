@@ -25,9 +25,15 @@
     name:对应的形参名 value:对应形参的值
     <constructor-arg name="name" value="xiaoyong"/>
        -->
-    <bean id="userDao" class="org.example.dao.impl.UserDaoImpl"/>
+    <bean id="userDao" class="org.example.dao.impl.UserDaoImpl" lazy-init="true"/>
+
+    <!-- Bean的静态模式创建 通过bean工厂BeanFactory 里面的userDao方法返回一个UserDao(多态)
+    补充：这里也会调用该类的无参构造方法
+    -->
+    <bean id="userDao1" class="org.example.factory.BeanFactory" factory-bean="userDao"/>
 
     <bean id="userService" class="org.example.servie.impl.UserServiceImpl"
+    lazy-init="true"
     >
         <!--写入有参构造传值name:对应的形参名字 value:对应的值-->
         <constructor-arg name="name" value="xiaoyong"/>

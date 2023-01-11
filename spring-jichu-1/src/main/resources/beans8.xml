@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- 下述直接写factory-method=是因为该方法属于静态方法 静态工厂可以这么写 -->
+    <!--<bean id="userDao" class="org.example.factory.BeanFactory01" factory-method="userDao"/>-->
+
+
+    <!-- 实例工厂写法 -->
+    <!-- 1.首先配置工厂bean -->
+    <bean id="BeanFactory02" class="org.example.factory.BeanFactory02"/>
+
+    <!-- 2.在通过工厂bean去调用工厂里面的方法 -->
+    <bean id="userDao" factory-bean="BeanFactory02" factory-method="getUserDao"/>
+
+</beans>
