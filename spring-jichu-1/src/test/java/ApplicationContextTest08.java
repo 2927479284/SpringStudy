@@ -1,3 +1,4 @@
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -13,8 +14,8 @@ public class ApplicationContextTest08 {
      * @param args
      */
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext applicationContext =
+        ApplicationContext applicationContext =
                 new ClassPathXmlApplicationContext("beans8.xml");
-
+        System.out.println("aaa");
     }
 }

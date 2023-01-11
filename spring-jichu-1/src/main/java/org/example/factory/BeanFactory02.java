@@ -12,7 +12,8 @@ import org.example.dao.impl.UserDaoImpl;
 public class BeanFactory02 {
 
 
-    public UserDao getUserDao(){
+    public UserDao getUserDao(String name,Integer age){
+        System.out.println("name:"+name+" age:"+age);
         return new UserDaoImpl();
     }
 }

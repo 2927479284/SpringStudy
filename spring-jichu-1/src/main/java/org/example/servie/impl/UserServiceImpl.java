@@ -7,10 +7,10 @@ import org.springframework.beans.factory.InitializingBean;
 
 public class UserServiceImpl implements UserService, InitializingBean {
 
-//    public UserServiceImpl() {
-//        System.out.println("我被实例化了");
-//
-//    }
+    public UserServiceImpl() {
+        System.out.println("无参构造我被实例化了");
+
+    }
     private String name;
 
 

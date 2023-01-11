@@ -13,6 +13,10 @@
     <bean id="BeanFactory02" class="org.example.factory.BeanFactory02"/>
 
     <!-- 2.在通过工厂bean去调用工厂里面的方法 -->
-    <bean id="userDao" factory-bean="BeanFactory02" factory-method="getUserDao"/>
+    <bean id="userDao" factory-bean="BeanFactory02" factory-method="getUserDao">
+        <!-- 对应方法出现需要参数 -->
+        <constructor-arg name="name" value="张三"/>
+        <constructor-arg name="age" value="18"/>
+    </bean>
 
 </beans>

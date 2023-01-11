@@ -30,7 +30,9 @@
     <!-- Bean的静态模式创建 通过bean工厂BeanFactory 里面的userDao方法返回一个UserDao(多态)
     补充：这里也会调用该类的无参构造方法
     -->
-    <bean id="userDao1" class="org.example.factory.BeanFactory" factory-bean="userDao"/>
+    <bean id="userDao1" class="org.example.factory.BeanFactory" factory-method="userDao">
+        <constructor-arg name="name" value="zhangsan"/>
+    </bean>
 
     <bean id="userService" class="org.example.servie.impl.UserServiceImpl"
     lazy-init="true"

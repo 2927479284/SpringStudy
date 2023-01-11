@@ -1,3 +1,4 @@
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -8,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class ApplicationContextTest07 {
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("beans.xml");
+        ApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("beans.xml");
         Object userDao1 = classPathXmlApplicationContext.getBean("userDao1");
         System.out.println(userDao1);
     }
