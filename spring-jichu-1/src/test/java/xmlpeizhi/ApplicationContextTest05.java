@@ -1,3 +1,5 @@
+package xmlpeizhi;
+
 import org.example.dao.impl.UserDaoImpl;
 import org.example.servie.UserService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
